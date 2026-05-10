@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,maximum-scale=1" name="viewport"/>
+<title>母親節快樂 🌹</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans TC',sans-serif;background:#FFF0F5;overflow-x:hidden;}
+.petal-layer{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.petal{position:absolute;top:-30px;opacity:0;animation:fall linear infinite;}
+@keyframes fall{0%{opacity:.8;transform:translateY(0) rotate(0deg);}100%{opacity:0;transform:translateY(105vh) rotate(400deg) translateX(30px);}}
+.music{position:fixed;bottom:16px;right:16px;z-index:200;background:rgba(255,255,255,.93);border:1px solid #F4C0D1;border-radius:999px;padding:8px 16px;display:flex;align-items:center;gap:6px;font-size:13px;color:#993556;cursor:pointer;font-family:inherit;}
+.note{animation:nb 1.2s ease-in-out infinite;display:inline-block;}
+@keyframes nb{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+.wrap{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:0 18px 60px;}
+/* HERO */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 24px;}
+.hero-emoji{font-size:54px;margin-bottom:16px;animation:pulse 2.8s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.badge{font-size:11px;letter-spacing:.18em;color:#D4537E;background:#FBEAF0;border:1px solid #F4C0D1;border-radius:999px;padding:4px 14px;margin-bottom:20px;display:inline-block;}
+.hero-title{font-family:'Noto Serif TC',serif;font-size:clamp(24px,7vw,34px);font-weight:600;color:#72243E;line-height:1.5;margin-bottom:12px;}
+.hero-sub{font-size:14px;color:#993556;line-height:1.9;margin-bottom:32px;}
+.scroll{font-size:12px;color:#D4537E;opacity:.6;animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:.3;}50%{opacity:.9;}}
+/* SECTIONS */
+.sec{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;padding-bottom:44px;}
+.sec.on{opacity:1;transform:none;}
+.divider{width:48px;height:1px;background:linear-gradient(90deg,transparent,#F4C0D1,transparent);margin:0 auto 24px;}
+.sec-tag{font-size:11px;letter-spacing:.14em;color:#D4537E;text-align:center;margin-bottom:5px;}
+.sec-title{font-family:'Noto Serif TC',serif;font-size:18px;font-weight:500;color:#72243E;text-align:center;margin-bottom:16px;}
+/* CAT CARDS */
+.cat-card{background:#fff;border:1px solid #F4C0D1;border-radius:14px;padding:14px;margin-bottom:14px;}
+.cat-label{display:inline-block;background:#FBEAF0;border:1px solid #F4C0D1;border-radius:999px;padding:3px 12px;font-size:12px;color:#993556;font-weight:500;margin-bottom:10px;}
+.cat-desc{font-size:13px;color:#4B1528;line-height:1.8;margin-bottom:10px;}
+.cap{font-size:11px;color:#993556;font-style:italic;margin-top:7px;text-align:center;}
+
+/* PHOTO LAYOUT */
+.photo-stack{display:flex;flex-direction:column;gap:8px;margin-top:12px;}
+.photo-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;align-items:start;}
+.photo-frame{border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;box-shadow:0 6px 16px rgba(153,53,86,.08);}
+.photo-frame.landscape{aspect-ratio:4/3;}
+.photo-frame.portrait{aspect-ratio:3/4;}
+.photo-frame.wide{aspect-ratio:16/9;}
+.photo-frame.square{aspect-ratio:1/1;}
+.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.trip-block{margin-top:18px;}
+.trip-title{font-size:12px;letter-spacing:.1em;color:#D4537E;margin-bottom:10px;}
+
+/* ENDING */
+.ending{background:#fff;border:1px solid #F4C0D1;border-radius:16px;padding:28px 22px;text-align:center;}
+.ending-title{font-family:'Noto Serif TC',serif;font-size:18px;color:#72243E;font-weight:500;margin-bottom:16px;}
+.ending p{font-size:14px;color:#4B1528;line-height:2;margin-bottom:10px;}
+.ending .wish{font-size:15px;color:#993556;font-weight:500;margin-top:16px;}
+/* HEART */
+.heart-wrap{text-align:center;padding:28px 0 16px;}
+.heart-btn{background:none;border:1.5px solid #D4537E;border-radius:999px;padding:12px 28px;font-size:16px;color:#993556;cursor:pointer;font-family:inherit;display:inline-flex;align-items:center;gap:7px;transition:all .2s;}
+.heart-btn:hover{background:#FBEAF0;}
+.heart-btn.lit{background:#D4537E;color:#fff;border-color:#D4537E;}
+.heart-msg{margin-top:12px;font-size:13px;color:#D4537E;min-height:18px;}
+.footer{font-size:11px;color:#D4537E;opacity:.4;text-align:center;padding:20px 0 40px;}
+@keyframes fh{0%{transform:translateY(0) scale(1);opacity:1;}100%{transform:translateY(-90px) scale(1.5);opacity:0;}}
+
+/* REVISED PHOTO MASONRY LAYOUT */
+.photo-masonry{columns:2;column-gap:8px;margin-top:8px;}
+.photo-masonry .photo-frame{display:inline-block;width:100%;margin:0 0 8px;break-inside:avoid;aspect-ratio:auto!important;}
+.photo-masonry .photo-frame img{width:100%;height:auto!important;object-fit:contain!important;object-position:center center!important;display:block;}
+.photo-masonry + .cap{margin-top:4px;margin-bottom:10px;}
+@media (max-width:360px){.photo-masonry{columns:1;}}
+</style>
+</head>
+<body>
+<div class="petal-layer" id="pl"></div>
+<!-- HERO -->
+<div style="position:relative;z-index:1;">
+<div class="hero">
+<div class="hero-emoji">🌹</div>
+<div class="badge">HAPPY MOTHER'S DAY · 2026</div>
+<h1 class="hero-title">母親節快樂<br/>祝媽媽們幸福每一天</h1>
+<p class="hero-sub">
+    時間在照片裡留下痕跡<br/>
+    每一個笑臉、每一隻毛孩<br/>
+    都是我們共同珍藏的回憶 ♡
+  </p>
+<p class="scroll">↓ 往下滑，回顧我們的故事</p>
+</div>
+<div class="wrap">
+<!-- ===== 喵星人們 ===== -->
+<div class="sec" id="s1">
+<div class="divider"></div>
+<p class="sec-tag">🐾 CHAPTER 1</p>
+<h2 class="sec-title">喵星人們</h2>
+<p style="font-size:13px;color:#993556;text-align:center;margin-bottom:18px;line-height:1.8;">牠們一個接一個來到這個家<br/>帶來笑聲、帶來溫暖，也帶走了我們的心</p>
+<!-- 喵咪 -->
+<div class="cat-card">
+<div class="cat-label">🖤 喵咪</div>
+<p class="cat-desc">喵咪是家裡的喵星人始祖，家樓下的街道是我們相遇的開始，一句任性的話「我想養牠」，就這樣成為我們的家人。</p>
+<div style="aspect-ratio:4/3;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img loading="lazy" src="assets/photo_01.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;"/></div>
+</div>
+<!-- 布比 & 娜娜 -->
+<div class="cat-card">
+<div class="cat-label">🤍 布比 &amp; 🧡 娜娜</div>
+<p class="cat-desc">布比是家裡脾氣最好的天使喵，熱愛紅豆冰棒。娜娜脾氣來得快去得快，也讓人最愛鬧牠。想念牠們打鬧的日子。</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"><div style="aspect-ratio:3/4;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img loading="lazy" src="assets/photo_02.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div style="aspect-ratio:3/4;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img loading="lazy" src="assets/photo_03.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div></div>
+<div style="margin-top:8px;"><div style="aspect-ratio:4/3;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img loading="lazy" src="assets/photo_04.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;"/></div></div>
+</div>
+<!-- 赫赫 & 姆吉 -->
+<div class="cat-card">
+<div class="cat-label">🍑 赫赫 &amp; 🩶 姆吉</div>
+<p class="cat-desc">赫赫的外表會騙人，吃是牠的人生大事。姆吉貼心忍讓兄長，也是家裡唯一可以參加選美的好身材喵。</p>
+<div style="aspect-ratio:4/3;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img loading="lazy" src="assets/photo_05.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;"/></div>
+</div>
+<!-- 捏捏 -->
+<div class="cat-card">
+<div class="cat-label">🤍 捏捏</div>
+<p class="cat-desc">傲嬌又皮蛋的尤達寶寶，最愛咬外婆，個性脾氣都最像媽媽。</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"><div style="aspect-ratio:1/1;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img alt="捏捏照片" loading="lazy" src="assets/photo_06.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div style="aspect-ratio:3/4;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img alt="捏捏照片" loading="lazy" src="assets/photo_07.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div></div>
+<div style="margin-top:8px;"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"><div style="aspect-ratio:1/1;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img alt="捏捏照片" loading="lazy" src="assets/photo_08.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div style="aspect-ratio:1/1;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img alt="捏捏照片" loading="lazy" src="assets/photo_09.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div></div></div>
+</div>
+<!-- 妞妞 -->
+<div class="cat-card">
+<div class="cat-label">🐾 妞妞</div>
+<p class="cat-desc">身材是典型外婆養的貓，永遠怕牠吃不飽，最暴力的女力士還講話講不停。</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"><div style="aspect-ratio:3/4;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img loading="lazy" src="assets/photo_10.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div style="aspect-ratio:3/4;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img loading="lazy" src="assets/photo_11.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div></div>
+<div style="margin-top:8px;"><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;"><div style="aspect-ratio:3/4;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img loading="lazy" src="assets/photo_12.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div style="aspect-ratio:3/4;border-radius:10px;overflow:hidden;border:1px solid #F4C0D1;background:#FBEAF0;"><img loading="lazy" src="assets/photo_13.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div></div></div>
+</div>
+</div>
+<!-- ===== 家族時光 ===== -->
+<div class="sec" id="s2">
+<div class="divider"></div>
+<p class="sec-tag">👨‍👩‍👧‍👦 CHAPTER 2</p>
+<h2 class="sec-title">家族時光</h2>
+<p style="font-size:13px;color:#993556;text-align:center;margin-bottom:18px;line-height:1.8;">聚在一起吃飯<br/>人多才熱鬧，這就是家</p>
+<div class="photo-stack"><div class="photo-masonry family-masonry"><div class="photo-frame"><img loading="lazy" src="assets/photo_14.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_15.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_16.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_17.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_18.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_19.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_20.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_21.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_22.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_23.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_24.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_25.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_26.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_27.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_28.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_29.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div></div><div class="cap">大家在一起，就是最好的日子</div></div></div>
+<!-- ===== 出遊回憶 ===== -->
+<div class="sec" id="s3">
+<div class="divider"></div>
+<p class="sec-tag">✈️ CHAPTER 3</p>
+<h2 class="sec-title">出遊回憶</h2>
+<p style="font-size:13px;color:#993556;text-align:center;margin-bottom:18px;line-height:1.8;">走過的每一個地方，都成了最珍貴的回憶</p>
+<div class="photo-stack"><p class="trip-title">🗾 日本</p><div class="photo-masonry travel-masonry"><div class="photo-frame"><img loading="lazy" src="assets/photo_30.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_31.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_32.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_33.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_34.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_35.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_36.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_37.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_38.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_39.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_40.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_41.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_42.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div></div><div class="cap">東京迪士尼、USJ、京都與大阪的旅途回憶</div><div class="trip-block"><p class="trip-title">🌊 宜蘭</p><div class="photo-masonry travel-masonry"><div class="photo-frame"><img loading="lazy" src="assets/photo_43.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_44.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_45.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_46.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div><div class="photo-frame"><img loading="lazy" src="assets/photo_47.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;"/></div></div><div class="cap">宜蘭的好山好水，還有旅途中意外認識的毛朋友 ♡</div></div></div></div>
+<!-- ===== 結語 ===== -->
+<div class="ending">
+  <p class="wish">今年一起養好身體，明年全家出遊繼續創造更多回憶！</p>
+</div>
+<p class="footer">用愛製作 · 2026 母親節</p>
+</div>
+</div><!-- wrap -->
+<button class="music" id="mb" type="button" aria-label="播放背景音樂" onclick="toggleMusic(event)">
+<span class="note">♪</span><span id="ml">The Best Day・點擊播放</span>
+</button>
+<audio id="audio" loop preload="metadata" playsinline><source src="assets/music.mp3" type="audio/mpeg"></audio>
+<script>
+// Petals
+const pl=document.getElementById('pl');
+['🌸','🌹','✿','♡','🌷','❀','🌺'].forEach(e=>{
+  for(let i=0;i<3;i++){
+    const p=document.createElement('div');
+    p.className='petal';p.textContent=e;
+    p.style.cssText=`left:${Math.random()*100}%;font-size:${11+Math.random()*11}px;animation-duration:${7+Math.random()*10}s;animation-delay:${Math.random()*14}s;`;
+    pl.appendChild(p);
+  }
+});
+
+// Scroll reveal
+document.querySelectorAll('.sec').forEach(s=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting)e.target.classList.add('on');},{threshold:.08}).observe(s);
+});
+
+// Music
+let playing=false;
+const audio=document.getElementById('audio');
+const musicButton=document.getElementById('mb');
+function setMusicLabel(text){
+  const label=document.getElementById('ml');
+  if(label) label.textContent=text;
+}
+async function toggleMusic(e){
+  if(e){ e.preventDefault(); e.stopPropagation(); }
+  try{
+    if(!audio){ setMusicLabel('找不到音樂檔'); return; }
+    if(!audio.paused && !audio.ended){
+      audio.pause();
+      playing=false;
+      setMusicLabel('The Best Day・點擊播放');
+      return;
+    }
+    audio.volume = 0.85;
+    await audio.play();
+    playing=true;
+    setMusicLabel('The Best Day 播放中・點擊暫停');
+  }catch(err){
+    playing=false;
+    setMusicLabel('請再點一次播放音樂');
+    console.log('Audio play failed:', err);
+  }
+}
+if(musicButton){
+  musicButton.addEventListener('touchend', toggleMusic, {passive:false});
+}
+audio && audio.addEventListener('ended',()=>{
+  playing=false;
+  setMusicLabel('The Best Day・點擊播放');
+});
+
+// Heart
+let pressed=false;
+function pressHeart(){
+  if(pressed)return;pressed=true;
+  document.getElementById('hb').classList.add('lit');
+  document.getElementById('hi').textContent='❤️';
+  document.getElementById('ht').textContent='媽媽收到了';
+  document.getElementById('hm').textContent='謝謝你，這是今天最棒的禮物 ♡';
+  for(let i=0;i<12;i++)setTimeout(()=>{
+    const h=document.createElement('div');
+    h.textContent='♡';
+    h.style.cssText=`position:fixed;left:${30+Math.random()*40}%;bottom:${10+Math.random()*25}%;font-size:${14+Math.random()*18}px;color:#D4537E;pointer-events:none;z-index:999;animation:fh 1.6s ease-out forwards;`;
+    document.body.appendChild(h);setTimeout(()=>h.remove(),1700);
+  },i*120);
+}
+</script>
+</body>
+</html>
